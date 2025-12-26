@@ -1,0 +1,89 @@
+<!-- PAGE TITLE -->
+<div class="container-fluid mt-3">
+  <h3 class="page-title text-dark">All Auctions</h3>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="content">
+
+      <div
+        class="card auction-card mb-4"
+        *ngFor="let auction of auctions">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            Auction ID : {{ auction.auctionID }}
+          </h5>
+
+          <h5 class="card-title">
+            Item Name : {{ auction.itemName }}
+          </h5>
+
+          <p class="card-text">
+            Item Description : {{ auction.itemDescription }}
+          </p>
+
+          <p><strong>Start:</strong> {{ auction.startDateTime | date:'short' }}</p>
+          <p><strong>End:</strong> {{ auction.endDateTime | date:'short' }}</p>
+
+          <hr />
+
+          <p><strong>Start Price:</strong> ₹{{ auction.startPrice | number }}</p>
+          <p><strong>Reserve Price:</strong> ₹{{ auction.reservePrice | number }}</p>
+          <p><strong>Current Price:</strong> ₹{{ auction.currentPrice | number }}</p>
+
+          <!-- Highest Bidder (Only if CLOSED) -->
+          <p *ngIf="auction.status === 'CLOSE'">
+            <strong>Highest Bidder ID:</strong>
+            {{ auction.highestBidderID }}
+          </p>
+
+          <!-- STATUS -->
+          <p>
+            <strong>Status:</strong>
+            <span
+              [ngClass]="{
+                'status-open': auction.status === 'OPEN',
+                'status-reserved': auction.status === 'RESERVED',
+                'status-closed': auction.status === 'CLOSE'
+              }">
+              {{ auction.status }}
+            </span>
+          </p>
+
+          <!-- BUTTONS -->
+          <div class="btn-group flex-wrap">
+            <button class="btn btn-sm btn-warning"
+                    (click)="changeStatus(auction.auctionID)">
+              Change Status
+            </button>
+
+            <button class="btn btn-sm btn-primary"
+                    (click)="updateAuction(auction.auctionID)">
+              Update
+            </button>
+
+            <button class="btn btn-sm btn-danger"
+                    (click)="deleteAuction(auction.auctionID)">
+              Delete
+            </button>
+
+            <button class="btn btn-sm btn-success"
+                    (click)="finalizeAuction(auction.auctionID)">
+              Finalize
+            </button>
+
+            <button class="btn btn-sm btn-secondary"
+                    (click)="viewHighest(auction.auctionID)">
+              View Highest
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

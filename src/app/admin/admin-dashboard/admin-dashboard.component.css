@@ -1,0 +1,18 @@
+.status-open {
+  color: green;
+  font-weight: bold;
+}
+
+.status-reserved {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-closed {
+  color: red;
+  font-weight: bold;
+}
+
+.auction-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

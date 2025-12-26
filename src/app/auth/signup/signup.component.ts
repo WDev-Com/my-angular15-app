@@ -4,38 +4,44 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
   signupForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(private fb: FormBuilder) {
     this.signupForm = this.fb.group(
       {
-        name: ['', [Validators.required]],
+        username: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+        contact: ['', Validators.required],
+        address: ['', Validators.required],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required]],
+        confirmPassword: ['', Validators.required],
       },
-      {
-        validators: this.passwordsMatchValidator,
-      }
+      { validators: this.passwordMatchValidator }
     );
   }
 
-  passwordsMatchValidator(group: FormGroup) {
-    const pass = group.get('password')?.value;
-    const confirm = group.get('confirmPassword')?.value;
-    return pass === confirm ? null : { passwordsMismatch: true };
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const confirm = form.get('confirmPassword')?.value;
+    return password === confirm ? null : { passwordMismatch: true };
   }
 
   onSubmit() {
     if (this.signupForm.invalid) {
+      this.errorMessage = 'Please fill all required fields correctly';
       this.signupForm.markAllAsTouched();
       return;
     }
 
-    const { name, email, password } = this.signupForm.value;
-    // TODO: call your backend API here
-    console.log('Signup', name, email, password);
+    this.errorMessage = '';
+
+    const formData = this.signupForm.value;
+    console.log('Signup Data:', formData);
+
+    // TODO: Call backend API here
   }
 }

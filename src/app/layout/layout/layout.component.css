@@ -1,0 +1,16 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.body-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.page-content {
+  flex: 1;
+  padding: 16px;
+  background: #f8f9fa;
+}

@@ -1,0 +1,33 @@
+<div class="sidebar" [class.open]="isOpen">
+
+<div class="d-flex align-items-center justify-content-evenly mb-3">
+<ng-container *ngIf="role === 'admin'">
+    <h6 class="text-white">Admin Navigation</h6>
+    </ng-container>
+ </div>
+    <!-- MOBILE HEADER ACTIONS -->
+  <div class="sidebar-header d-flex align-items-center justify-content-evenly mb-3">
+
+    
+
+    <span class="admin-badge">{{ role | uppercase }}</span>
+
+    <button class="btn btn-danger btn-sm"
+            (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <!-- ADMIN NAV -->
+  <ng-container *ngIf="role === 'admin'">
+    <a routerLink="/admin/dashboard">🏠 Dashboard</a>
+    <a routerLink="/admin/create-auction">➕ Create Auction</a>
+    <a routerLink="/admin/users">👥 Users</a>
+    <a routerLink="/admin/bids">📊 Bids</a>
+
+    <br /><br />
+
+    <a routerLink="/profile">👤 Your Profile</a>
+  </ng-container>
+
+</div>

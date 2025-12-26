@@ -1,0 +1,68 @@
+/* Full page center alignment */
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Headline */
+.login-card h3 {
+  font-weight: 600;
+}
+
+.form-control {
+  height: 45px;
+  border-radius: 6px;
+}
+
+/* BUTTON — force override Bootstrap */
+.login-btn {
+  width: 160px;
+  height: 45px;
+
+  background-color: #0b5ed7 !important;
+  border: none !important;
+  color: #ffffff !important;
+
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.login-btn:hover {
+  background-color: #084298 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Click */
+.login-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Signup link */
+.login-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}

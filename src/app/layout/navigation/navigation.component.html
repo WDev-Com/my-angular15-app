@@ -1,0 +1,19 @@
+<div class="top-header">
+
+  <div class="d-flex align-items-center gap-3">
+    <button class="menu-btn" (click)="onToggleSidebar()">☰</button>
+    <a routerLink="/dashboard" id="dashboardLink">
+      Dashboard
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <span class="admin-badge">{{ role | uppercase }}</span>
+
+    <button class="btn btn-danger btn-md"
+            (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+</div>

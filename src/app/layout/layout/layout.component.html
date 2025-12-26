@@ -1,0 +1,27 @@
+<!-- layout.component.html -->
+
+<div class="app-container">
+
+  <!-- HEADER -->
+  <app-navigation
+    (toggleSidebar)="toggleSidebar()">
+  </app-navigation>
+
+  <!-- BODY -->
+  <div class="body-wrapper">
+    <app-sidebar
+      [isOpen]="isSidebarOpen"
+      [role]="userRole">
+    </app-sidebar>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- GLOBAL MODALS
+  <app-common-modal></app-common-modal>
+  <app-common-input-modal></app-common-input-modal> -->
+
+</div>
