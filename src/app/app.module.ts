@@ -8,9 +8,10 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LayoutModule } from './layout/layout.module';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewAllUsersComponent } from './admin/view-all-users/view-all-users.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, AdminDashboardComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, AdminDashboardComponent, ViewAllUsersComponent],
   /** 
    * Add LayoutModule to imports to use LayoutComponent and its child components 
    * The  LayoutModule is custom module created to encapsulate layout-related components
