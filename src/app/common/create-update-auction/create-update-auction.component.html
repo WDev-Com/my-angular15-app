@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="form-container">
+      <h3 class="page-title text-center">{{ pageTitle }}</h3>
+
+      <form [formGroup]="auctionForm" (ngSubmit)="submit()">
+
+        <div class="mb-3">
+          <label class="form-label">Item Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="itemName"
+            placeholder="Enter item name">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Item Description</label>
+          <textarea
+            rows="3"
+            class="form-control"
+            formControlName="itemDescription"
+            placeholder="Enter item description">
+          </textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Auction Starts On</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            formControlName="startDate">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Auction Ends On</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            formControlName="endDate">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Start Price</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="startPrice">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Reserve Price</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="reservePrice">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Auction Status</label>
+          <select class="form-select" formControlName="status">
+            <option value="OPEN">OPEN</option>
+            <option value="CLOSED">CLOSED</option>
+          </select>
+        </div>
+
+        <div class="btn-group-custom text-center mt-4">
+          <button type="button" class="btn btn-secondary" (click)="goBack()">
+            Go Back
+          </button>
+
+          <button type="button" class="btn btn-warning" (click)="clearForm()">
+            Clear Form
+          </button>
+
+          <button type="submit" class="btn btn-primary">
+            {{ isEditMode ? 'Update Auction' : 'Create Auction' }}
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

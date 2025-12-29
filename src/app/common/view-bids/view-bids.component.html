@@ -1,0 +1,47 @@
+<div class="container mt-3">
+  <h3>All Bids</h3>
+
+  <div class="card auction-card mb-3" *ngFor="let bid of bids">
+    <div class="card-body">
+
+      <h5>Auction ID: {{ bid.auctionID }}</h5>
+
+      <p>
+        <strong>Auction Status:</strong>
+        <span
+          [ngClass]="{
+            'status-open': isOpen(bid.status),
+            'status-closed': !isOpen(bid.status)
+          }">
+          {{ bid.status }}
+        </span>
+      </p>
+
+      <p><strong>Bid ID:</strong> {{ bid.bidID }}</p>
+      <p><strong>Bidder ID:</strong> {{ bid.bidderID }}</p>
+      <p><strong>Bid Amount:</strong> ₹{{ bid.bidAmount | number }}</p>
+      <p><strong>Bid Time:</strong> {{ bid.bidTime }}</p>
+
+      <!-- USER ONLY SECTION -->
+      <div *ngIf="role === 'USER'">
+        <p>
+          <strong>Status:</strong>
+          <span
+            [ngClass]="{
+              'status-open': bid.bidStatus === 'WIN',
+              'status-closed': bid.bidStatus !== 'WIN'
+            }">
+            {{ bid.bidStatus }}
+          </span>
+        </p>
+
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="withdrawBid(bid.auctionID)">
+          Withdraw
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

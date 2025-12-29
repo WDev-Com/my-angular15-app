@@ -1,0 +1,21 @@
+/* CARD */
+.auction-card {
+  width: 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.status-active {
+  color: green;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: 600;
+}
+
+.btn-group button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

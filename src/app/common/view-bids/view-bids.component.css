@@ -1,0 +1,14 @@
+.auction-card {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.status-open {
+  color: green;
+  font-weight: 600;
+}
+
+.status-closed {
+  color: red;
+  font-weight: 600;
+}

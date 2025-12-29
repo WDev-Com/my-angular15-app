@@ -9,9 +9,11 @@ import { LayoutModule } from './layout/layout.module';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewAllUsersComponent } from './admin/view-all-users/view-all-users.component';
+import { ViewBidsComponent } from './common/view-bids/view-bids.component';
+import { CreateUpdateAuctionComponent } from './common/create-update-auction/create-update-auction.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, AdminDashboardComponent, ViewAllUsersComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, AdminDashboardComponent, ViewAllUsersComponent, ViewBidsComponent, CreateUpdateAuctionComponent],
   /** 
    * Add LayoutModule to imports to use LayoutComponent and its child components 
    * The  LayoutModule is custom module created to encapsulate layout-related components
